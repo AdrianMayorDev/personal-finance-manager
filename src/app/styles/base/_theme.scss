@@ -1,0 +1,45 @@
+@use "./palette";
+
+// Default theme
+
+:root {
+	// Text
+	--text-primary: #{palette.$primary-grey-900};
+	--text-secondary: #{palette.$primary-grey-500};
+	--text-tertiary: #{palette.$primary-white};
+
+	// Background
+	--background-primary: #{palette.$primary-beige-100};
+	--background-secondary: #{palette.$primary-grey-100};
+	--background-tertiary: #{palette.$primary-white};
+
+	// Button
+	--button-primary-bg: #{palette.$primary-grey-900};
+	--button-primary-bg-hover: #{palette.$primary-grey-500};
+	--button-primary-text: #{palette.$primary-white};
+
+	--button-secondary-bg: #{palette.$primary-beige-100};
+	--button-secondary-bg-hover: #{palette.$primary-white};
+	--button-secondary-text: #{palette.$primary-grey-900};
+	--button-secondary-stroke-hover: #{palette.$primary-beige-500};
+
+	--button-tertiary-bg: transparent;
+	--button-tertiary-text: #{palette.$primary-grey-500};
+	--button-tertiary-text-hover: #{palette.$primary-grey-900};
+
+	--button-destroy-bg: #{palette.$secondary-red};
+	--button-destroy-text: #{palette.$primary-white};
+	--button-destroy-bg-hover: #{palette.$secondary-lighter-red};
+	--button-destroy-text-hover: #{palette.$primary-lighter-white};
+
+	--button-menu-bg: transparent;
+	--button-menu-text: #{palette.$primary-grey-300};
+	--button-menu-text-hover: #{palette.$primary-grey-100};
+	--button-menu-bg-active: #{palette.$primary-beige-100};
+	--button-menu-text-active: #{palette.$primary-grey-900};
+	--button-menu-detail-active: #{palette.$secondary-green};
+}
+
+// Alternative theme
+.dark-mode {
+}

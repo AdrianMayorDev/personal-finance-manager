@@ -1,4 +1,4 @@
-@import url("../../fonts/PublicSans-Bold.ttf");
-@import url("../../fonts/PublicSans-Italic-VariableFont_wght.ttf");
-@import url("../../fonts/PublicSans-Regular.ttf");
-@import url("../../fonts/PublicSans-VariableFont_wght.ttf");
+$font-publicSansBold: local("PublicSans-Bold", "../../fonts/PublicSans-Bold.ttf");
+$font-publicSans-Italic: local("PublicSans-Italic-VariableFont", "../../fonts/PublicSans-Italic-VariableFont_wght.ttf");
+$font-publicSans-Regular: local("PublicSans-Regular", "../../fonts/PublicSans-Regular.ttf");
+$font-publicSans-VariableFont: local("PublicSans-VariableFont", "../../fonts/PublicSans-VariableFont_wght.ttf");
