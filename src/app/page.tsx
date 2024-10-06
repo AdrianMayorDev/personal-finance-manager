@@ -1,6 +1,10 @@
 import "./styles/main.scss";
-import styles from "./test.module.scss";
+import ButtonPrimary from "./components/ButtonPrimary/ButtonPrimary";
 
 export default function Home() {
-	return <div className={styles.test}>Texto de prueba</div>;
+	return (
+		<div>
+			<ButtonPrimary />
+		</div>
+	);
 }
