@@ -1,0 +1,13 @@
+.primaryButton {
+	@include typography.body-text;
+	color: var(--button-primary-text);
+	background-color: var(--button-primary-bg);
+	width: 113px;
+	height: 53px;
+	border-radius: 15px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--button-primary-bg-hover);
+	}
+}

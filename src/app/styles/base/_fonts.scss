@@ -1,4 +1,21 @@
-$font-publicSansBold: local("PublicSans-Bold", "../../fonts/PublicSans-Bold.ttf");
-$font-publicSans-Italic: local("PublicSans-Italic-VariableFont", "../../fonts/PublicSans-Italic-VariableFont_wght.ttf");
-$font-publicSans-Regular: local("PublicSans-Regular", "../../fonts/PublicSans-Regular.ttf");
-$font-publicSans-VariableFont: local("PublicSans-VariableFont", "../../fonts/PublicSans-VariableFont_wght.ttf");
+@font-face {
+	font-family: "Public Sans Bold";
+	src: url("../../fonts/PublicSans-Bold.ttf") format("truetype");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "Public Sans Italic";
+	src: url("../../fonts/PublicSans-Italic-VariableFont_wght.ttf") format("truetype");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Public Sans Regular";
+	src: url("../../fonts/PublicSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Public Sans Variable";
+	src: url("../../fonts/PublicSans-VariableFont_wght.ttf") format("truetype");
+}
