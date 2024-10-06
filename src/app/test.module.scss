@@ -1,0 +1,4 @@
+.test {
+	@include typography.heading1;
+	color: var(--button-destroy-bg);
+}
