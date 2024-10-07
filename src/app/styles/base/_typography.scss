@@ -23,6 +23,13 @@
 }
 
 @mixin body-text {
+	font-family: "Public Sans Regular";
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 0px;
+}
+
+@mixin body-text-bold {
 	font-family: "Public Sans Bold";
 	font-size: 14px;
 	line-height: 150%;

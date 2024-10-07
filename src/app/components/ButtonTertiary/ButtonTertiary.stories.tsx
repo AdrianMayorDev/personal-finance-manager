@@ -1,7 +1,7 @@
 import { fn } from "@storybook/test";
 
 import { Meta, StoryObj } from "@storybook/react";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonTertiary from "./ButtonTertiary";
 
 // export const ActionsData = {
 // 	onArchiveTask: fn(),
@@ -9,14 +9,14 @@ import ButtonPrimary from "./ButtonPrimary";
 // };
 
 const meta: Meta = {
-	title: "Components/Button Primary",
-	component: ButtonPrimary,
+	title: "Components/Button Tertiary",
+	component: ButtonTertiary,
 	parameters: {
 		layout: "centered",
 	},
 	tags: ["autodocs"],
 	args: { onClick: fn() },
-} satisfies Meta<typeof ButtonPrimary>;
+} satisfies Meta<typeof ButtonTertiary>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

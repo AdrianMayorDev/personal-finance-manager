@@ -1,0 +1,19 @@
+$button-width: 113px;
+$button-height: 53px;
+$button-border-radius: 15px;
+$button-border-hover: 1px solid var(--button-secondary-stroke-hover);
+
+.secondaryButton {
+	@include typography.body-text-bold;
+	color: var(--button-secondary-text);
+	background-color: var(--button-secondary-bg);
+	width: $button-width;
+	height: $button-height;
+	border-radius: $button-border-radius;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--button-secondary-bg-hover);
+		border: $button-border-hover;
+	}
+}

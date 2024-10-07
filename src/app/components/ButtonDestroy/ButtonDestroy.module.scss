@@ -2,16 +2,17 @@ $button-width: 113px;
 $button-height: 53px;
 $button-border-radius: 15px;
 
-.primaryButton {
+.destroyButton {
 	@include typography.body-text-bold;
-	color: var(--button-primary-text);
-	background-color: var(--button-primary-bg);
+	color: var(--button-destroy-text);
+	background-color: var(--button-destroy-bg);
 	width: $button-width;
 	height: $button-height;
 	border-radius: $button-border-radius;
 	cursor: pointer;
 
 	&:hover {
-		background-color: var(--button-primary-bg-hover);
+		background-color: var(--button-destroy-bg-hover);
+		color: var(--button-destroy-text-hover);
 	}
 }
