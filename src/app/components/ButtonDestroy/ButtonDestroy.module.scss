@@ -1,0 +1,14 @@
+.destroyButton {
+	@include typography.body-text;
+	color: var(--button-destroy-text);
+	background-color: var(--button-destroy-bg);
+	width: 113px;
+	height: 53px;
+	border-radius: 15px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--button-destroy-bg-hover);
+		color: var(--button-destroy-text-hover);
+	}
+}
