@@ -1,20 +1,27 @@
+$button-width: 113px;
+$button-height: 53px;
+$button-border-radius: 15px;
+$caret-width: 6px;
+$caret-height: 11px;
+$caret-margin-left: 8px;
+
 .tertiaryButton {
 	@include typography.body-text;
 	color: var(--button-tertiary-text);
 	background-color: var(--button-tertiary-bg);
-	width: 113px;
-	height: 53px;
-	border-radius: 15px;
+	width: $button-width;
+	height: $button-height;
+	border-radius: $button-border-radius;
 	cursor: pointer;
 
 	&::after {
 		content: "";
 		display: inline-block;
-		width: 6px;
-		height: 11px;
+		width: $caret-width;
+		height: $caret-height;
 		mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
 		background-color: var(--button-tertiary-text);
-		margin-left: 8px;
+		margin-left: $caret-margin-left;
 	}
 
 	&:hover {
