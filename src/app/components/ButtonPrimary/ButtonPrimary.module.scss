@@ -1,5 +1,5 @@
 .primaryButton {
-	@include typography.body-text;
+	@include typography.body-text-bold;
 	color: var(--button-primary-text);
 	background-color: var(--button-primary-bg);
 	width: 113px;

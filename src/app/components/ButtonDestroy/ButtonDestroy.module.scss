@@ -1,5 +1,5 @@
 .destroyButton {
-	@include typography.body-text;
+	@include typography.body-text-bold;
 	color: var(--button-destroy-text);
 	background-color: var(--button-destroy-bg);
 	width: 113px;

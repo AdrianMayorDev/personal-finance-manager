@@ -1,5 +1,5 @@
 .secondaryButton {
-	@include typography.body-text;
+	@include typography.body-text-bold;
 	color: var(--button-secondary-text);
 	background-color: var(--button-secondary-bg);
 	width: 113px;

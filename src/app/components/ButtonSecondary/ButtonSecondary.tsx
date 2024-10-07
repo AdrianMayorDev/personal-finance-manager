@@ -9,7 +9,7 @@ export interface ButtonSecondaryProps {
 	onClick?: () => void;
 }
 
-const buttonSecondary = ({ label = "Placeholder", onClick }: ButtonSecondaryProps) => {
+const ButtonSecondary = ({ label = "Placeholder", onClick }: ButtonSecondaryProps) => {
 	return (
 		<button className={secondaryButton} onClick={onClick}>
 			{label}
@@ -17,4 +17,4 @@ const buttonSecondary = ({ label = "Placeholder", onClick }: ButtonSecondaryProp
 	);
 };
 
-export default buttonSecondary;
+export default ButtonSecondary;
