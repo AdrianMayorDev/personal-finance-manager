@@ -1,0 +1,14 @@
+.secondaryButton {
+	@include typography.body-text;
+	color: var(--button-secondary-text);
+	background-color: var(--button-secondary-bg);
+	width: 113px;
+	height: 53px;
+	border-radius: 15px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--button-secondary-bg-hover);
+		border: 1px solid var(--button-secondary-stroke-hover);
+	}
+}
