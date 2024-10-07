@@ -9,19 +9,20 @@ import ButtonPrimary from "./ButtonPrimary";
 // };
 
 const meta: Meta = {
+	title: "Components/Button Primary",
 	component: ButtonPrimary,
-};
+	parameters: {
+		layout: "centered",
+	},
+	tags: ["autodocs"],
+	args: { onClick: fn() },
+} satisfies Meta<typeof ButtonPrimary>;
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = {
-	component: ButtonPrimary,
-	title: "testComponent",
-	// tags: ["autodocs"],
-	//👇 Our exports that end in "Data" are not stories.
-	excludeStories: /.*Data$/,
-	// args: {
-	// 	...ActionsData,
-	// },
-};
+export const Default: Story = {};
+
+export const Hover: Story = {};
+
+Hover.parameters = { pseudo: { hover: true } };
