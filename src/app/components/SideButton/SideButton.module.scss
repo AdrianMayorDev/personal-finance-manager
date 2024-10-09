@@ -2,8 +2,8 @@ $button-width: 276px;
 $button-height: 56px;
 $button-active-border-radius: 0px 5px 5px 0px;
 $button-border-left: 4px solid var(--button-menu-detail-active);
-$caret-width: 17px;
-$caret-height: 9px;
+$caret-width: 24px;
+$caret-height: 24px;
 $caret-margin: 0px 23px 0px 23px;
 
 .sideButton {
@@ -22,7 +22,6 @@ $caret-margin: 0px 23px 0px 23px;
 		display: inline-block;
 		width: $caret-width;
 		height: $caret-height;
-		mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
 		background-color: var(--button-menu-text);
 		margin: $caret-margin;
 	}
@@ -43,6 +42,42 @@ $caret-margin: 0px 23px 0px 23px;
 
 		&::before {
 			background-color: var(--button-menu-detail-active);
+		}
+	}
+
+	&.defaultButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+		}
+	}
+
+	&.homeButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-overview.svg") no-repeat center;
+		}
+	}
+
+	&.potsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-pots.svg") no-repeat center;
+		}
+	}
+
+	&.budgetsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-budgets.svg") no-repeat center;
+		}
+	}
+
+	&.recurringButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-recurring-bills.svg") no-repeat center;
+		}
+	}
+
+	&.transactionsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-transactions.svg") no-repeat center;
 		}
 	}
 }
