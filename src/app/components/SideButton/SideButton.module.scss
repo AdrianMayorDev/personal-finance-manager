@@ -38,6 +38,14 @@ $caret-margin: 0px 23px 0px 23px;
 		}
 	}
 
+	@container (max-width: 100px) {
+		width: $button-mobile-width;
+		height: $button-mobile-height;
+		span {
+			display: none;
+		}
+	}
+
 	&::before {
 		content: "";
 		display: inline-block;

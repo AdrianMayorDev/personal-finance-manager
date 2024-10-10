@@ -1,0 +1,42 @@
+$sideMenu-desktop-height: 100%;
+$sideMenu-desktop-width: 300px;
+$sideMenu-desktop-border-radius: 0px 5px 5px 0px;
+$sideMenu-tablet-height: 74px;
+$sideMenu-tablet-width: 100%;
+$sideMenu-tablet-border-radius: 5px 5px 0px 0px;
+$sideMenu-mobile-height: 52px;
+
+.sideMenu {
+	position: fixed;
+	background-color: var(--background-secondary);
+	height: $sideMenu-desktop-height;
+	width: $sideMenu-desktop-width;
+	border-radius: $sideMenu-desktop-border-radius;
+
+	@media (max-width: breakpoints.$tablet-bp) {
+		bottom: 0;
+		width: $sideMenu-tablet-width;
+		height: $sideMenu-tablet-height;
+		border-radius: $sideMenu-tablet-border-radius;
+
+		> :first-child,
+		> :last-child {
+			display: none;
+		}
+
+		ul {
+			height: 100%;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			gap: 42px;
+		}
+
+		@media (max-width: breakpoints.$mobile-bp) {
+			height: $sideMenu-mobile-height;
+			ul {
+				gap: initial;
+			}
+		}
+	}
+}

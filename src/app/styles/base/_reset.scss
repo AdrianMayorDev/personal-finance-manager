@@ -1,17 +1,13 @@
 /*
   1. Use a more-intuitive box-sizing model.
+  2. Remove default margin and padding
 */
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-}
-
-/*
-    2. Remove default margin
-  */
-* {
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /*
@@ -20,7 +16,8 @@
     4. Improve text rendering
   */
 body {
-	line-height: 1.5;
+	// line-height: 1.5;
+	min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
 }
 

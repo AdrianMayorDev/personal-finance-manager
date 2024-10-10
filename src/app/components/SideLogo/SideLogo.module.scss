@@ -1,0 +1,15 @@
+.sideLogo {
+	display: inline-block;
+	margin-left: 32px;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	width: 121px;
+	height: 21px;
+	background: url("../../../../public/assets/icons/logo-large.svg") no-repeat;
+	transition: all 0.1s;
+	cursor: pointer;
+
+	&.logoCollapsed {
+		background-image: url("../../../../public/assets/icons/logo-small.svg");
+	}
+}
