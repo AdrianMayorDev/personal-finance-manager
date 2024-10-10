@@ -13,7 +13,7 @@ export enum ButtonType {
 
 interface SideButtonProps {
 	/**Disable button if loading */
-	loading: boolean;
+	loading?: boolean;
 	/** Active state */
 	active?: boolean;
 	/** Text that is going to contain the button */
@@ -37,7 +37,7 @@ const SideButton = ({
 
 	return (
 		<button className={`${currentStyle} ${typeClass}`} disabled={loading} onClick={onClick}>
-			{label}
+			<span>{label}</span>
 		</button>
 	);
 };
