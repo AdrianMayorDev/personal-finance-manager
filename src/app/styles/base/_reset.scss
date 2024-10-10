@@ -1,6 +1,6 @@
 /*
   1. Use a more-intuitive box-sizing model.
-  2. Remove default margin and padding
+  2. Remove default margin and padding and text decoration
 */
 *,
 *::before,
@@ -8,6 +8,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 
 /*

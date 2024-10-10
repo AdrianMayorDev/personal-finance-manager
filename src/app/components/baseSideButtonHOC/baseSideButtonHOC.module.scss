@@ -115,4 +115,10 @@ $caret-margin: 0px 23px 0px 23px;
 			mask: url("../../../../public/assets/icons/icon-nav-transactions.svg") no-repeat center;
 		}
 	}
+
+	&.minimizeButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-minimize-menu.svg") no-repeat center;
+		}
+	}
 }

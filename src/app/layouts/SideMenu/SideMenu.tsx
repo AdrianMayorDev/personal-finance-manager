@@ -1,22 +1,54 @@
-import SideButton, { ButtonType } from "@/app/components/SideButton/SideButton";
+"use client";
 
+import SideButton from "@/app/components/SideButton/SideButton";
 import styles from "./SideMenu.module.scss";
 import SideLogo from "@/app/components/SideLogo/SideLogo";
+import { usePathname } from "next/navigation";
+import SideNavButton from "@/app/components/SideNavButton/SideNavButton";
+import { ButtonType } from "@/app/components/baseSideButtonHOC/baseSideButtonHOC";
 
 const { sideMenu } = styles;
 
+const navItems = [
+	{
+		label: "Overview",
+		type: ButtonType.homeButton,
+		path: "/",
+	},
+	{
+		label: "Transactions",
+		type: ButtonType.transactionsButton,
+		path: "/transactions",
+	},
+	{
+		label: "Budgets",
+		type: ButtonType.budgetsButton,
+		path: "/budgets",
+	},
+	{
+		label: "Pots",
+		type: ButtonType.potsButton,
+		path: "/pots",
+	},
+	{
+		label: "Recurring bills",
+		type: ButtonType.recurringButton,
+		path: "recurring",
+	},
+];
+
 const SideMenu = () => {
+	const pathname = usePathname();
+
 	return (
-		<nav id='testNav' className={sideMenu}>
+		<nav className={sideMenu}>
 			<SideLogo />
 			<ul>
-				<SideButton type={ButtonType.homeButton} label='Overview' />
-				<SideButton type={ButtonType.transactionsButton} label='Transactions' />
-				<SideButton type={ButtonType.budgetsButton} label='Budgets' />
-				<SideButton type={ButtonType.potsButton} label='Pots' active />
-				<SideButton type={ButtonType.recurringButton} label='Recurring bills' />
+				{navItems.map((item) => (
+					<SideNavButton key={item.label} label={item.label} type={item.type} path={item.path} active={pathname === item.path} />
+				))}
 			</ul>
-			<button>test</button>
+			<SideButton type={ButtonType.minimizeButton} label='Minimize Menu' />
 		</nav>
 	);
 };
