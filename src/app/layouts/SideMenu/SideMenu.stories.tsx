@@ -1,9 +1,9 @@
 // src/components/SideMenu/SideMenu.stories.tsx
-import { Meta, Story } from "@storybook/react";
-import { useState, useEffect } from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { useArgs } from "@storybook/preview-api";
 import SideMenu, { ISideMenuProps } from "./SideMenu";
 
-export default {
+const meta: Meta<typeof SideMenu> = {
 	title: "Layouts/SideMenu",
 	component: SideMenu,
 	tags: ["autodocs"],
@@ -23,24 +23,24 @@ export default {
 	parameters: {
 		layout: "fullscreen",
 	},
-} as Meta<ISideMenuProps>;
-
-const Template: Story<ISideMenuProps> = (args: ISideMenuProps) => {
-	const [collapse, setCollapse] = useState(args.collapse);
-
-	useEffect(() => {
-		setCollapse(args.collapse);
-	}, [args.collapse]);
-
-	const handleCollapse = () => {
-		setCollapse((prev) => !prev);
-	};
-
-	return <SideMenu {...args} collapse={collapse} handleCollapse={handleCollapse} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-	collapse: false,
-	pathname: "/budgets",
+export default meta;
+
+type Story = StoryObj<typeof SideMenu>;
+
+export const Default: Story = {
+	args: {
+		collapse: false,
+		pathname: "/budgets",
+	},
+	render: function Render(args: ISideMenuProps) {
+		const [{ collapse }, updateArgs] = useArgs();
+
+		const handleCollapse = () => {
+			updateArgs({ collapse: !collapse });
+		};
+
+		return <SideMenu {...args} collapse={collapse} handleCollapse={handleCollapse} />;
+	},
 };
