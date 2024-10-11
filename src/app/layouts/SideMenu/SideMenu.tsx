@@ -1,12 +1,8 @@
-"use client";
-
 import SideButton from "@/app/components/SideButton/SideButton";
 import styles from "./SideMenu.module.scss";
 import SideLogo from "@/app/components/SideLogo/SideLogo";
-import { usePathname } from "next/navigation";
 import SideNavButton from "@/app/components/SideNavButton/SideNavButton";
 import { ButtonType } from "@/app/components/baseSideButtonHOC/baseSideButtonHOC";
-import { useState } from "react";
 
 const { sideMenu, sideMenu_collapsed } = styles;
 
@@ -38,16 +34,13 @@ const navItems = [
 	},
 ];
 
-const SideMenu = () => {
-	const pathname = usePathname();
+export interface ISideMenuProps {
+	collapse: boolean;
+	pathname: string;
+	handleCollapse: () => void;
+}
 
-	const [collapse, setCollapse] = useState(false);
-
-	const handleCollapseClick = () => {
-		console.log("click");
-		setCollapse(!collapse);
-	};
-
+const SideMenu = ({ collapse, pathname, handleCollapse }: ISideMenuProps) => {
 	const navStyles = `${sideMenu} ${collapse && sideMenu_collapsed}`;
 
 	return (
@@ -65,7 +58,7 @@ const SideMenu = () => {
 					/>
 				))}
 			</ul>
-			<SideButton type={ButtonType.minimizeButton} label='Minimize Menu' onClick={handleCollapseClick} collapse={collapse} />
+			<SideButton type={ButtonType.minimizeButton} label='Minimize Menu' onClick={handleCollapse} collapse={collapse} />
 		</nav>
 	);
 };

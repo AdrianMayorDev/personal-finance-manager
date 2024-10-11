@@ -38,6 +38,10 @@ $caret-margin: 0px 23px 0px 23px;
 		height: $button-tablet-height;
 		flex-direction: column;
 		justify-content: center;
+
+		span {
+			width: auto;
+		}
 	}
 
 	@media (max-width: breakpoints.$mobile-bp) {

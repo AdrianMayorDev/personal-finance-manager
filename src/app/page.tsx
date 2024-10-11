@@ -1,6 +1,6 @@
 import "./styles/main.scss";
-import SideMenu from "./layouts/SideMenu/SideMenu";
+import SideMenuLayout from "./layouts/SideMenu";
 
 export default function Home() {
-	return <SideMenu />;
+	return <SideMenuLayout />;
 }
