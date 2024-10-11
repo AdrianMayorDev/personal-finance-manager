@@ -1,6 +1,6 @@
-import baseButtonHOC, { baseSideButtonProps } from "../baseSideButtonHOC/baseSideButtonHOC";
+import baseButtonHOC, { ISideButtonBaseProps } from "../SideButtonBaseHOC/SideButtonBaseHOC";
 
-interface SideButtonProps extends baseSideButtonProps {
+interface SideButtonProps extends ISideButtonBaseProps {
 	className?: string;
 }
 

@@ -2,7 +2,7 @@ import styles from "./ButtonSecondary.module.scss";
 
 const { secondaryButton } = styles;
 
-export interface ButtonSecondaryProps {
+export interface IButtonSecondaryProps {
 	/**Disable button if loading */
 	loading: boolean;
 	/** Text that is going to contain the button */
@@ -11,7 +11,7 @@ export interface ButtonSecondaryProps {
 	onClick?: () => void;
 }
 
-const ButtonSecondary = ({ loading = false, label = "Placeholder", onClick }: ButtonSecondaryProps) => {
+const ButtonSecondary = ({ loading = false, label = "Placeholder", onClick }: IButtonSecondaryProps) => {
 	return (
 		<button className={secondaryButton} disabled={loading} onClick={onClick}>
 			{label}

@@ -13,7 +13,7 @@ export enum ButtonType {
 	minimizeButton = "minimizeButton",
 }
 
-export interface baseSideButtonProps {
+export interface ISideButtonBaseProps {
 	/** Loading */
 	loading?: boolean;
 	/** Active state */
@@ -30,7 +30,7 @@ export interface baseSideButtonProps {
 	collapse?: boolean;
 }
 
-const baseSideButtonHOC = <P extends baseSideButtonProps>(Component: ComponentType<baseSideButtonProps>) => {
+const SideButtonBaseHOC = <P extends ISideButtonBaseProps>(Component: ComponentType<ISideButtonBaseProps>) => {
 	const WrappedComponent = ({
 		active = false,
 		type = ButtonType.defaultButton,

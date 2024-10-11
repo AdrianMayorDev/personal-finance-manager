@@ -1,7 +1,7 @@
 import Link from "next/link";
-import baseButtonHOC, { baseSideButtonProps } from "../baseSideButtonHOC/baseSideButtonHOC";
+import baseButtonHOC, { ISideButtonBaseProps } from "../SideButtonBaseHOC/SideButtonBaseHOC";
 
-interface SideNavButtonProps extends baseSideButtonProps {
+interface SideNavButtonProps extends ISideButtonBaseProps {
 	className?: string;
 }
 

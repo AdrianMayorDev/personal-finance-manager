@@ -2,7 +2,7 @@ import styles from "./ButtonPrimary.module.scss";
 
 const { primaryButton } = styles;
 
-export interface ButtonPrimaryProps {
+export interface IButtonPrimaryProps {
 	/**Disable button if loading */
 	loading?: boolean;
 	/** Text that is going to contain the button */
@@ -11,7 +11,7 @@ export interface ButtonPrimaryProps {
 	onClick?: () => void;
 }
 
-const buttonPrimary = ({ loading = false, label = "Placeholder", onClick }: ButtonPrimaryProps) => {
+const buttonPrimary = ({ loading = false, label = "Placeholder", onClick }: IButtonPrimaryProps) => {
 	return (
 		<button className={primaryButton} disabled={loading} onClick={onClick}>
 			{label}

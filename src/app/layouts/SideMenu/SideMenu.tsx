@@ -2,7 +2,7 @@ import SideButton from "@/app/components/SideButton/SideButton";
 import styles from "./SideMenu.module.scss";
 import SideLogo from "@/app/components/SideLogo/SideLogo";
 import SideNavButton from "@/app/components/SideNavButton/SideNavButton";
-import { ButtonType } from "@/app/components/baseSideButtonHOC/baseSideButtonHOC";
+import { ButtonType } from "@/app/components/SideButtonBaseHOC/SideButtonBaseHOC";
 
 const { sideMenu, sideMenu_collapsed } = styles;
 

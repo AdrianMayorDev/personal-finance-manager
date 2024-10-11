@@ -2,7 +2,7 @@ import styles from "./ButtonTertiary.module.scss";
 
 const { tertiaryButton } = styles;
 
-export interface ButtonTertiaryProps {
+export interface IButtonTertiaryProps {
 	/**Disable button if loading */
 	loading: boolean;
 	/** Text that is going to contain the button */
@@ -11,7 +11,7 @@ export interface ButtonTertiaryProps {
 	onClick?: () => void;
 }
 
-const ButtonTertiary = ({ loading = false, label = "Placeholder", onClick }: ButtonTertiaryProps) => {
+const ButtonTertiary = ({ loading = false, label = "Placeholder", onClick }: IButtonTertiaryProps) => {
 	return (
 		<button className={tertiaryButton} disabled={loading} onClick={onClick}>
 			{label}
