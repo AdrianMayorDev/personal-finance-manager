@@ -1,5 +1,7 @@
 $button-desktop-width: 276px;
 $button-desktop-height: 56px;
+$button-desktop-collapse-width: 80px;
+$button-desktop-collapse-height: 56px;
 $button-tablet-width: 104px;
 $button-tablet-height: 66px;
 $button-mobile-width: 68px;
@@ -20,8 +22,8 @@ $caret-margin: 0px 23px 0px 23px;
 	height: $button-desktop-height;
 	display: flex;
 	align-items: center;
-	transition: all 0.1s;
-
+	transition: all 0.5s;
+	overflow: hidden;
 	@media (max-width: breakpoints.$tablet-bp) {
 		@include typography.small-text-bold;
 		width: $button-tablet-width;
@@ -38,11 +40,13 @@ $caret-margin: 0px 23px 0px 23px;
 		}
 	}
 
-	@container (max-width: 100px) {
-		width: $button-mobile-width;
-		height: $button-mobile-height;
-		span {
-			display: none;
+	@media (min-width: breakpoints.$tablet-bp) {
+		&.collapsed {
+			width: $button-desktop-collapse-width;
+			height: $button-desktop-collapse-height;
+			span {
+				display: none;
+			}
 		}
 	}
 
@@ -119,6 +123,10 @@ $caret-margin: 0px 23px 0px 23px;
 	&.minimizeButton {
 		&::before {
 			mask: url("../../../../public/assets/icons/icon-minimize-menu.svg") no-repeat center;
+		}
+
+		&.collapsed {
+			transform: rotate(-180deg);
 		}
 	}
 }

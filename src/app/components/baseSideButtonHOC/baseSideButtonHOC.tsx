@@ -1,7 +1,7 @@
 import styles from "./baseSideButtonHOC.module.scss";
 import { ComponentType } from "react";
 
-const { sideButton, sideButton_active } = styles;
+const { sideButton, sideButton_active, collapsed } = styles;
 
 export enum ButtonType {
 	defaultButton = "defaultButton",
@@ -26,14 +26,24 @@ export interface baseSideButtonProps {
 	type?: ButtonType;
 	/** Link path */
 	path?: string;
+	/** Collapse state */
+	collapse?: boolean;
 }
 
 const baseSideButtonHOC = <P extends baseSideButtonProps>(Component: ComponentType<baseSideButtonProps>) => {
-	const WrappedComponent = ({ active = false, type = ButtonType.defaultButton, label = "Placeholder", onClick, ...rest }: P) => {
-		const currentStyle = active ? `${sideButton} ${sideButton_active}` : sideButton;
+	const WrappedComponent = ({
+		active = false,
+		type = ButtonType.defaultButton,
+		label = "Placeholder",
+		onClick,
+		collapse = false,
+		...rest
+	}: P) => {
+		const activeStyle = active ? `${sideButton} ${sideButton_active}` : sideButton;
+		const collapsedStyle = collapse && collapsed;
 		const typeClass = type ? styles[type] : "";
 
-		const combinedClasses = `${currentStyle} ${typeClass}`;
+		const combinedClasses = `${activeStyle} ${typeClass} ${collapsedStyle}`;
 
 		return <Component {...rest} label={label} className={combinedClasses} onClick={onClick} />;
 	};
