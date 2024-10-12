@@ -1,4 +1,4 @@
-import styles from "./baseSideButtonHOC.module.scss";
+import styles from "./SideButtonBaseHOC.module.scss";
 import { ComponentType } from "react";
 
 const { sideButton, sideButton_active, collapsed } = styles;
@@ -51,4 +51,4 @@ const SideButtonBaseHOC = <P extends ISideButtonBaseProps>(Component: ComponentT
 	return WrappedComponent;
 };
 
-export default baseSideButtonHOC;
+export default SideButtonBaseHOC;

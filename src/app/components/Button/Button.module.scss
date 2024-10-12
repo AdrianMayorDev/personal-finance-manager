@@ -1,0 +1,75 @@
+$button-width: 113px;
+$button-height: 53px;
+$button-border-radius: 15px;
+$button-border-hover: 1px solid var(--button-secondary-stroke-hover);
+$icon-width: 6px;
+$icon-height: 11px;
+$icon-margin-left: 8px;
+
+@mixin button-base($bg-color, $text-color, $hover-bg-color: null, $hover-text-color: null, $border-hover: null) {
+	@include typography.body-text-bold;
+	color: $text-color;
+	background-color: $bg-color;
+	width: $button-width;
+	height: $button-height;
+	border-radius: $button-border-radius;
+	cursor: pointer;
+
+	&:hover {
+		@if $hover-bg-color {
+			background-color: $hover-bg-color;
+		}
+		@if $hover-text-color {
+			color: $hover-text-color;
+		}
+		@if $border-hover {
+			border: $border-hover;
+		}
+	}
+}
+
+.primaryButton {
+	@include button-base(var(--button-primary-bg), var(--button-primary-text), var(--button-primary-bg-hover));
+}
+
+.secondaryButton {
+	@include button-base(
+		var(--button-secondary-bg),
+		var(--button-secondary-text),
+		var(--button-secondary-bg-hover),
+		null,
+		$button-border-hover
+	);
+}
+
+.tertiaryButton {
+	@include button-base(
+		var(--button-tertiary-bg),
+		var(--button-tertiary-text),
+		var(--button-tertiary-bg-hover),
+		var(--button-tertiary-text-hover)
+	);
+
+	&::after {
+		content: "";
+		display: inline-block;
+		width: $icon-width;
+		height: $icon-height;
+		mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+		background-color: var(--button-tertiary-text);
+		margin-left: $icon-margin-left;
+	}
+
+	&:hover &::after {
+		background-color: var(--button-tertiary-text-hover);
+	}
+}
+
+.destroyButton {
+	@include button-base(
+		var(--button-destroy-bg),
+		var(--button-destroy-text),
+		var(--button-destroy-bg-hover),
+		var(--button-destroy-text-hover)
+	);
+}
