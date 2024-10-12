@@ -5,6 +5,7 @@ export enum ButtonType {
 	secondaryButton = "secondaryButton",
 	tertiaryButton = "tertiaryButton",
 	destroyButton = "destroyButton",
+	paginationButton = "paginationButton",
 }
 
 export interface IButtonProps {
@@ -16,10 +17,17 @@ export interface IButtonProps {
 	label?: string;
 	/**  Optional click handler */
 	onClick?: () => void;
+	/** Active state */
+	active?: boolean;
+	/** Pagination variant */
+	paginationVariant?: "Prev" | "Next";
 }
 
-const Button = ({ type, loading = false, label = "Placeholder", onClick }: IButtonProps) => {
-	const buttonClassName = styles[type];
+const Button = ({ type, loading = false, label = "Placeholder", onClick, active = false, paginationVariant }: IButtonProps) => {
+	const paginationClassVariant = paginationVariant ? styles[`paginationIcon${paginationVariant}`] : "";
+
+	const buttonClassName = `${styles[type]} ${active ? styles.activeButton : ""} ${paginationClassVariant}`;
+
 	return (
 		<button className={buttonClassName} disabled={loading} onClick={onClick}>
 			{label}

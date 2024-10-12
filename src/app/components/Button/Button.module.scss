@@ -1,17 +1,20 @@
-$button-width: 113px;
-$button-height: 53px;
+$button-width-regular: 113px;
+$button-height-regular: 53px;
+$button-width-pagination: 40px;
+$button-height-pagination: 40px;
+$button-width-pagination-variant: 96px;
 $button-border-radius: 15px;
-$button-border-hover: 1px solid var(--button-secondary-stroke-hover);
 $icon-width: 6px;
 $icon-height: 11px;
-$icon-margin-left: 8px;
+$icon-margin-small: 8px;
+$icon-margin-large: 16px;
 
 @mixin button-base($bg-color, $text-color, $hover-bg-color: null, $hover-text-color: null, $border-hover: null) {
 	@include typography.body-text-bold;
 	color: $text-color;
 	background-color: $bg-color;
-	width: $button-width;
-	height: $button-height;
+	width: $button-width-regular;
+	height: $button-height-regular;
 	border-radius: $button-border-radius;
 	cursor: pointer;
 
@@ -33,6 +36,7 @@ $icon-margin-left: 8px;
 }
 
 .secondaryButton {
+	$button-border-hover: 1px solid var(--button-secondary-stroke-hover);
 	@include button-base(
 		var(--button-secondary-bg),
 		var(--button-secondary-text),
@@ -57,10 +61,10 @@ $icon-margin-left: 8px;
 		height: $icon-height;
 		mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
 		background-color: var(--button-tertiary-text);
-		margin-left: $icon-margin-left;
+		margin-left: $icon-margin-small;
 	}
 
-	&:hover &::after {
+	&:hover::after {
 		background-color: var(--button-tertiary-text-hover);
 	}
 }
@@ -72,4 +76,57 @@ $icon-margin-left: 8px;
 		var(--button-destroy-bg-hover),
 		var(--button-destroy-text-hover)
 	);
+}
+
+.paginationButton {
+	@include button-base(
+		var(--button-pagination-bg),
+		var(--button-pagination-text),
+		var(--button-pagination-bg-hover),
+		var(--button-pagination-text-hover),
+		null
+	);
+	@include typography.body-text;
+	width: $button-width-pagination;
+	height: $button-height-pagination;
+	border: solid 1px var(--button-pagination-border);
+	&.activeButton {
+		background-color: var(--button-pagination-bg-active);
+		color: var(--button-pagination-text-active);
+		border: none;
+	}
+
+	&.paginationIconNext,
+	&.paginationIconPrev {
+		width: $button-width-pagination-variant;
+
+		&::before,
+		&::after {
+			display: inline-block;
+			width: $icon-width;
+			height: $icon-height;
+			background-color: var(--button-pagination-border);
+		}
+
+		&:hover::after,
+		&:hover::before {
+			background-color: var(--button-pagination-icon-hover);
+		}
+	}
+
+	&.paginationIconNext {
+		&::after {
+			content: "";
+			mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+			margin-left: $icon-margin-large;
+		}
+	}
+
+	&.paginationIconPrev {
+		&::before {
+			content: "";
+			mask: url("../../../../public/assets/icons/icon-caret-left.svg") no-repeat center;
+			margin-right: $icon-margin-large;
+		}
+	}
 }

@@ -3,7 +3,7 @@ import { ComponentType } from "react";
 
 const { sideButton, sideButton_active, collapsed } = styles;
 
-export enum ButtonType {
+export enum SideButtonHOCType {
 	defaultButton = "defaultButton",
 	homeButton = "homeButton",
 	potsButton = "potsButton",
@@ -23,7 +23,7 @@ export interface ISideButtonBaseProps {
 	/**  Optional click handler */
 	onClick?: () => void;
 	/** Button type */
-	type?: ButtonType;
+	type?: SideButtonHOCType;
 	/** Link path */
 	path?: string;
 	/** Collapse state */
@@ -33,7 +33,7 @@ export interface ISideButtonBaseProps {
 const SideButtonBaseHOC = <P extends ISideButtonBaseProps>(Component: ComponentType<ISideButtonBaseProps>) => {
 	const WrappedComponent = ({
 		active = false,
-		type = ButtonType.defaultButton,
+		type = SideButtonHOCType.defaultButton,
 		label = "Placeholder",
 		onClick,
 		collapse = false,

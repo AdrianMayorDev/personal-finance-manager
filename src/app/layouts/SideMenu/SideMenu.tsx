@@ -2,34 +2,34 @@ import SideButton from "@/app/components/SideButton/SideButton";
 import styles from "./SideMenu.module.scss";
 import SideLogo from "@/app/components/SideLogo/SideLogo";
 import SideNavButton from "@/app/components/SideNavButton/SideNavButton";
-import { ButtonType } from "@/app/components/SideButtonBaseHOC/SideButtonBaseHOC";
+import { SideButtonHOCType } from "@/app/components/SideButtonBaseHOC/SideButtonBaseHOC";
 
 const { sideMenu, sideMenu_collapsed } = styles;
 
 const navItems = [
 	{
 		label: "Overview",
-		type: ButtonType.homeButton,
+		type: SideButtonHOCType.homeButton,
 		path: "/",
 	},
 	{
 		label: "Transactions",
-		type: ButtonType.transactionsButton,
+		type: SideButtonHOCType.transactionsButton,
 		path: "/transactions",
 	},
 	{
 		label: "Budgets",
-		type: ButtonType.budgetsButton,
+		type: SideButtonHOCType.budgetsButton,
 		path: "/budgets",
 	},
 	{
 		label: "Pots",
-		type: ButtonType.potsButton,
+		type: SideButtonHOCType.potsButton,
 		path: "/pots",
 	},
 	{
 		label: "Recurring bills",
-		type: ButtonType.recurringButton,
+		type: SideButtonHOCType.recurringButton,
 		path: "recurring",
 	},
 ];
@@ -58,7 +58,7 @@ const SideMenu = ({ collapse, pathname, handleCollapse }: ISideMenuProps) => {
 					/>
 				))}
 			</ul>
-			<SideButton type={ButtonType.minimizeButton} label='Minimize Menu' onClick={handleCollapse} collapse={collapse} />
+			<SideButton type={SideButtonHOCType.minimizeButton} label='Minimize Menu' onClick={handleCollapse} collapse={collapse} />
 		</nav>
 	);
 };
