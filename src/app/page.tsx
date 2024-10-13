@@ -1,10 +1,6 @@
 import "./styles/main.scss";
-import ButtonPrimary from "./components/ButtonPrimary/ButtonPrimary";
+import InputField from "./components/InputField/InputField";
 
 export default function Home() {
-	return (
-		<div>
-			<ButtonPrimary />
-		</div>
-	);
+	return <InputField label='Label test' name='name' type='text' placeholder='test placeholder' helper helperText='Helper text' />;
 }

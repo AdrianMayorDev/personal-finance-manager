@@ -1,0 +1,147 @@
+$button-desktop-width: 276px;
+$button-desktop-height: 56px;
+$button-desktop-collapse-width: 80px;
+$button-desktop-collapse-height: 56px;
+$button-tablet-width: 104px;
+$button-tablet-height: 66px;
+$button-mobile-width: 68px;
+$button-mobile-height: 44px;
+$button-desktop-active-border-radius: 0px 5px 5px 0px;
+$button-tablet-active-border-radius: 5px 5px 0px 0px;
+$button-active-border: 4px solid var(--button-menu-detail-active);
+$icon-width: 24px;
+$icon-height: 24px;
+$caret-margin: 0px 23px 0px 23px;
+
+.sideButton {
+	@include typography.body-text-large;
+	color: var(--button-menu-text);
+	background-color: var(--button-menu-bg);
+	cursor: pointer;
+	width: $button-desktop-width;
+	height: $button-desktop-height;
+	display: flex;
+	align-items: center;
+	transition: transform 0.5s;
+	overflow: hidden;
+
+	span {
+		transition: width 0.5s, opacity 0.5s;
+		width: 200px;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	@media (max-width: breakpoints.$tablet-bp) {
+		@include typography.small-text-bold;
+		width: $button-tablet-width;
+		height: $button-tablet-height;
+		flex-direction: column;
+		justify-content: center;
+
+		span {
+			width: auto;
+		}
+	}
+
+	@media (max-width: breakpoints.$mobile-bp) {
+		width: $button-mobile-width;
+		height: $button-mobile-height;
+		span {
+			display: none;
+		}
+	}
+
+	@media (min-width: breakpoints.$tablet-bp) {
+		&.collapsed {
+			transition: all 0.5s;
+			width: $button-desktop-collapse-width;
+			height: $button-desktop-collapse-height;
+			span {
+				transition: opacity 0.3s, width 0.3s;
+				width: 0;
+				opacity: 0;
+			}
+		}
+	}
+
+	&::before {
+		content: "";
+		display: inline-block;
+		width: $icon-width;
+		height: $icon-height;
+		background-color: var(--button-menu-text);
+		margin: $caret-margin;
+	}
+
+	&:hover:not(&.sideButton_active) {
+		color: var(--button-menu-text-hover);
+
+		&::before {
+			background-color: var(--button-menu-text-hover);
+		}
+	}
+
+	&_active {
+		color: var(--button-menu-text-active);
+		background-color: var(--button-menu-bg-active);
+		border-left: $button-active-border;
+		border-radius: $button-desktop-active-border-radius;
+
+		@media (max-width: breakpoints.$tablet-bp) {
+			border-left: none;
+			border-bottom: $button-active-border;
+			border-radius: $button-tablet-active-border-radius;
+		}
+
+		&::before {
+			background-color: var(--button-menu-detail-active);
+		}
+	}
+
+	&.defaultButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+		}
+	}
+
+	&.homeButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-overview.svg") no-repeat center;
+		}
+	}
+
+	&.potsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-pots.svg") no-repeat center;
+		}
+	}
+
+	&.budgetsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-budgets.svg") no-repeat center;
+		}
+	}
+
+	&.recurringButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-recurring-bills.svg") no-repeat center;
+		}
+	}
+
+	&.transactionsButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-nav-transactions.svg") no-repeat center;
+		}
+	}
+
+	&.minimizeButton {
+		&::before {
+			mask: url("../../../../public/assets/icons/icon-minimize-menu.svg") no-repeat center;
+		}
+
+		&.collapsed {
+			transform: rotate(-180deg);
+		}
+	}
+}

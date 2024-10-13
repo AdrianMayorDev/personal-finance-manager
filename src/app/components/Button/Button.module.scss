@@ -1,0 +1,132 @@
+$button-width-regular: 113px;
+$button-height-regular: 53px;
+$button-width-pagination: 40px;
+$button-height-pagination: 40px;
+$button-width-pagination-variant: 96px;
+$button-border-radius: 15px;
+$icon-width: 6px;
+$icon-height: 11px;
+$icon-margin-small: 8px;
+$icon-margin-large: 16px;
+
+@mixin button-base($bg-color, $text-color, $hover-bg-color: null, $hover-text-color: null, $border-hover: null) {
+	@include typography.body-text-bold;
+	color: $text-color;
+	background-color: $bg-color;
+	width: $button-width-regular;
+	height: $button-height-regular;
+	border-radius: $button-border-radius;
+	cursor: pointer;
+
+	&:hover {
+		@if $hover-bg-color {
+			background-color: $hover-bg-color;
+		}
+		@if $hover-text-color {
+			color: $hover-text-color;
+		}
+		@if $border-hover {
+			border: $border-hover;
+		}
+	}
+}
+
+.primaryButton {
+	@include button-base(var(--button-primary-bg), var(--button-primary-text), var(--button-primary-bg-hover));
+}
+
+.secondaryButton {
+	$button-border-hover: 1px solid var(--button-secondary-stroke-hover);
+	@include button-base(
+		var(--button-secondary-bg),
+		var(--button-secondary-text),
+		var(--button-secondary-bg-hover),
+		null,
+		$button-border-hover
+	);
+}
+
+.tertiaryButton {
+	@include button-base(
+		var(--button-tertiary-bg),
+		var(--button-tertiary-text),
+		var(--button-tertiary-bg-hover),
+		var(--button-tertiary-text-hover)
+	);
+
+	&::after {
+		content: "";
+		display: inline-block;
+		width: $icon-width;
+		height: $icon-height;
+		mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+		background-color: var(--button-tertiary-text);
+		margin-left: $icon-margin-small;
+	}
+
+	&:hover::after {
+		background-color: var(--button-tertiary-text-hover);
+	}
+}
+
+.destroyButton {
+	@include button-base(
+		var(--button-destroy-bg),
+		var(--button-destroy-text),
+		var(--button-destroy-bg-hover),
+		var(--button-destroy-text-hover)
+	);
+}
+
+.paginationButton {
+	@include button-base(
+		var(--button-pagination-bg),
+		var(--button-pagination-text),
+		var(--button-pagination-bg-hover),
+		var(--button-pagination-text-hover),
+		null
+	);
+	@include typography.body-text;
+	width: $button-width-pagination;
+	height: $button-height-pagination;
+	border: solid 1px var(--button-pagination-border);
+	&.activeButton {
+		background-color: var(--button-pagination-bg-active);
+		color: var(--button-pagination-text-active);
+		border: none;
+	}
+
+	&.paginationIconNext,
+	&.paginationIconPrev {
+		width: $button-width-pagination-variant;
+
+		&::before,
+		&::after {
+			display: inline-block;
+			width: $icon-width;
+			height: $icon-height;
+			background-color: var(--button-pagination-border);
+		}
+
+		&:hover::after,
+		&:hover::before {
+			background-color: var(--button-pagination-icon-hover);
+		}
+	}
+
+	&.paginationIconNext {
+		&::after {
+			content: "";
+			mask: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+			margin-left: $icon-margin-large;
+		}
+	}
+
+	&.paginationIconPrev {
+		&::before {
+			content: "";
+			mask: url("../../../../public/assets/icons/icon-caret-left.svg") no-repeat center;
+			margin-right: $icon-margin-large;
+		}
+	}
+}
