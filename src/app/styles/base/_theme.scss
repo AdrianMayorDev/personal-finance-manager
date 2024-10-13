@@ -49,6 +49,18 @@
 	--button-pagination-icon-hover: #{palette.$primary-white};
 	--button-pagination-bg-active: #{palette.$primary-grey-900};
 	--button-pagination-text-active: #{palette.$primary-white};
+
+	// Input
+	--input-text: #{palette.$primary-beige-500};
+	--input-border: #{palette.$primary-beige-500};
+	--input-text-hover: #{palette.$primary-grey-900};
+	--input-border-hover: #{palette.$primary-grey-500};
+	--input-text-active: #{palette.$primary-grey-900};
+	--input-border-active: #{palette.$primary-grey-900};
+	--input-text-filled: #{palette.$primary-grey-900};
+	--input-border-filled: #{palette.$primary-beige-500};
+	--input-helperText: #{palette.$primary-beige-500};
+	--input-label: #{palette.$primary-grey-500};
 }
 
 // Alternative theme
