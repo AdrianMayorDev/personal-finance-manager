@@ -42,19 +42,31 @@ $input-height: 45px;
 		}
 	}
 
-	.icon {
+	.icon,
+	.circleIcon {
 		position: absolute;
 		left: 15px;
 		bottom: 50%;
 		transform: translateY(50%);
 		width: 24px;
 		height: 24px;
-		background: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
 		margin-left: 0;
+	}
 
-		& + input {
-			padding: 17px 42px;
-		}
+	.icon {
+		background: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+	}
+
+	.circleIcon {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background-color: green;
+	}
+
+	.icon + input,
+	.circleIcon + input {
+		padding: 17px 40px;
 	}
 
 	span {
