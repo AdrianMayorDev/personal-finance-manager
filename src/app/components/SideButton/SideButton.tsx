@@ -1,24 +1,15 @@
-import styles from "./SideButton.module.scss";
+import baseButtonHOC, { ISideButtonBaseProps } from "../SideButtonBaseHOC/SideButtonBaseHOC";
 
-const { sideButton, sideButton_active } = styles;
-console.log(styles);
-export interface SideButtonProps {
-	/** Active state */
-	active?: boolean;
-	/** Text that is going to contain the button */
-	label?: string;
-	/**  Optional click handler */
-	onClick?: () => void;
+interface SideButtonProps extends ISideButtonBaseProps {
+	className?: string;
 }
 
-const SideButton = ({ active = false, label = "Placeholder", onClick }: SideButtonProps) => {
-	const currentStyle = active ? `${sideButton} ${sideButton_active}` : sideButton;
-
+const SideButton = ({ label, onClick, className }: SideButtonProps) => {
 	return (
-		<button className={currentStyle} onClick={onClick}>
-			{label}
+		<button onClick={onClick} className={className}>
+			<span>{label}</span>
 		</button>
 	);
 };
 
-export default SideButton;
+export default baseButtonHOC(SideButton);
