@@ -1,0 +1,72 @@
+$input-width: 320px;
+$input-height: 45px;
+
+.dropDownContainer {
+	@include typography.body-text;
+	height: $input-height;
+	width: 100%;
+	border: 1px solid var(--input-border);
+	color: var(--input-text);
+	padding: 17px 38px;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	&:hover {
+		border: 1px solid var(--input-border-hover);
+		color: var(--input-text-hover);
+	}
+
+	&:focus {
+		border: 1px solid var(--input-border-active);
+		color: var(--input-text-active);
+	}
+
+	&:valid {
+		color: var(--input-text-filled);
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		right: 15px;
+		bottom: 50%;
+		transform: translateY(50%);
+		width: 24px;
+		height: 24px;
+		background: url("../../../../public/assets/icons/icon-caret-down.svg") no-repeat center;
+	}
+}
+
+.dropdownOptions {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	z-index: 100;
+}
+
+.dropdownOption {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	padding: 12px 17px;
+	cursor: pointer;
+	border-bottom: 1px solid #ccc;
+}
+
+.dropdownOption:hover,
+.dropdownOption.active {
+	background-color: #f0f0f0;
+}
+
+.colorCircle {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
