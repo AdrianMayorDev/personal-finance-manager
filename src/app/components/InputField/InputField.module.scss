@@ -17,8 +17,7 @@ $input-height: 45px;
 		position: relative;
 	}
 
-	input,
-	select {
+	input {
 		@include typography.body-text;
 		height: $input-height;
 		width: 100%;

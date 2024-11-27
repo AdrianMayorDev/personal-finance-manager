@@ -14,16 +14,27 @@ const options = [
 
 export default function Home() {
 	return (
-		<InputField
-			label='Label test'
-			name='name'
-			type='select'
-			placeholder='test placeholder'
-			helper
-			helperText='Helper text'
-			icon='circlePrefix'
-			options={options}
-			circleColor='#c94736'
-		/>
+		<>
+			<InputField
+				label='Label test'
+				name='name'
+				type='select'
+				placeholder='test placeholder'
+				helper
+				helperText='Helper text'
+				icon='circlePrefix'
+				options={options}
+			/>
+			<InputField
+				label='Label test'
+				name='name'
+				type='text'
+				placeholder='test placeholder'
+				helper
+				helperText='Helper text'
+				icon='circlePrefix'
+				options={options}
+			/>
+		</>
 	);
 }
