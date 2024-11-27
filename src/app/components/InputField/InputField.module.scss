@@ -42,8 +42,9 @@ $input-height: 45px;
 		}
 	}
 
-	.icon,
-	.circleIcon {
+	.prefix,
+	.circlePrefix,
+	.icon {
 		position: absolute;
 		left: 15px;
 		bottom: 50%;
@@ -53,20 +54,36 @@ $input-height: 45px;
 		margin-left: 0;
 	}
 
-	.icon {
-		background: url("../../../../public/assets/icons/icon-caret-right.svg") no-repeat center;
+	.prefix {
+		background: url("../../../../public/assets/icons/dollar-icon.svg") no-repeat center;
 	}
 
-	.circleIcon {
+	.circlePrefix {
 		width: 16px;
 		height: 16px;
 		border-radius: 50%;
 		background-color: green;
 	}
 
-	.icon + input,
-	.circleIcon + input {
+	.icon {
+		left: initial;
+		right: 15px;
+		background: url("../../../../public/assets/icons/icon-search.svg") no-repeat center;
+	}
+
+	.prefix + input,
+	.circlePrefix + input {
 		padding: 17px 40px;
+	}
+
+	.prefix + select,
+	.circlePrefix + select {
+		padding: 0px 40px;
+	}
+
+	.icon + input,
+	.icon + select {
+		padding-right: 42px;
 	}
 
 	span {

@@ -12,11 +12,25 @@ interface IInputFieldProps {
 	handleOnChange?: () => void;
 	helper?: boolean;
 	helperText?: string;
-	icon?: "icon" | "circleIcon";
+	icon?: "icon" | "circlePrefix" | "prefix";
+	circleColor?: string;
 }
 
-const InputField = ({ type, name, label, value, placeholder, handleOnChange, helper, helperText, icon, options }: IInputFieldProps) => {
+const InputField = ({
+	type,
+	name,
+	label,
+	value,
+	placeholder,
+	handleOnChange,
+	helper,
+	helperText,
+	icon,
+	options,
+	circleColor,
+}: IInputFieldProps) => {
 	const iconTypeClass = icon ? styles[icon] : "";
+	const circleColorClass = circleColor ? { backgroundColor: circleColor } : {};
 
 	const inputType =
 		type === "text" ? (
@@ -35,7 +49,7 @@ const InputField = ({ type, name, label, value, placeholder, handleOnChange, hel
 		<div className={inputFieldContainer}>
 			<label htmlFor={name}>{label}</label>
 			<div>
-				<div className={iconTypeClass}></div>
+				<div className={iconTypeClass} style={circleColorClass}></div>
 				{inputType}
 			</div>
 			{helper && <span>{helperText}</span>}
