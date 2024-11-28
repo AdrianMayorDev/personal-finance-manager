@@ -8,7 +8,7 @@ const { dropDownContainer } = styles;
 interface DropdownSelectProps {
 	value?: string;
 	placeholder?: string;
-	options?: { value: string; label: string; used: boolean }[];
+	options?: { value: string; label: string; used?: boolean }[];
 	handleOnChange?: (value: string) => void;
 	activeIndex: number;
 	setActiveIndex: React.Dispatch<React.SetStateAction<number>>;

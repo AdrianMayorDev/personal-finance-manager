@@ -12,7 +12,7 @@ interface IInputFieldProps {
 	label: string;
 	value?: string;
 	placeholder?: string;
-	options?: { value: string; label: string; used: boolean }[];
+	options?: { value: string; label: string; used?: boolean }[];
 	handleOnChange?: () => void;
 	helper?: boolean;
 	helperText?: string;
