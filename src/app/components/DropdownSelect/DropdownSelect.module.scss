@@ -13,6 +13,10 @@ $input-height: 45px;
 	display: flex;
 	align-items: center;
 
+	&.noIcon {
+		padding-left: 20px;
+	}
+
 	&:hover {
 		border: 1px solid var(--input-border-hover);
 		color: var(--input-text-hover);

@@ -7,13 +7,28 @@ $input-height: 45px;
 	gap: 8px;
 	width: $input-width;
 
+	&.horizontalContainer {
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+
+		label {
+			@include typography.body-text;
+		}
+
+		input {
+			width: fit-content;
+		}
+	}
+
 	label {
 		@include typography.small-text-bold;
 		color: var(--input-label);
 	}
 
 	> div {
-		width: 100%;
+		// width: 100%;
+		width: auto;
 		position: relative;
 	}
 
@@ -68,6 +83,10 @@ $input-height: 45px;
 		left: initial;
 		right: 15px;
 		background: url("../../../../public/assets/icons/icon-search.svg") no-repeat center;
+	}
+
+	.noIcon {
+		padding-left: 20px;
 	}
 
 	.prefix + input,

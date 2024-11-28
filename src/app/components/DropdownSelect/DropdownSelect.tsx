@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import styles from "./DropdownSelect.module.scss";
 
-const { dropDownContainer } = styles;
+const { dropDownContainer, noIcon } = styles;
 
 interface DropdownSelectProps {
 	value?: string;
@@ -12,11 +12,13 @@ interface DropdownSelectProps {
 	handleOnChange?: (value: string) => void;
 	activeIndex: number;
 	setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+	icon?: "icon" | "circlePrefix" | "prefix";
 }
 
-const DropdownSelect = ({ options, handleOnChange, activeIndex, setActiveIndex }: DropdownSelectProps) => {
+const DropdownSelect = ({ options, handleOnChange, activeIndex, setActiveIndex, icon }: DropdownSelectProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const selectRef = useRef(null);
+	const isIcon = !icon ? noIcon : "";
 
 	const handleSelect = (selectedValue: string) => {
 		if (handleOnChange) handleOnChange(selectedValue);
@@ -44,7 +46,7 @@ const DropdownSelect = ({ options, handleOnChange, activeIndex, setActiveIndex }
 			onKeyDown={handleKeyDown}
 			onBlur={() => setIsOpen(false)}
 			tabIndex={0}
-			className={dropDownContainer}
+			className={`${dropDownContainer} ${isIcon}`}
 			onClick={() => setIsOpen(!isOpen)}
 		>
 			{options && options[activeIndex]?.label}

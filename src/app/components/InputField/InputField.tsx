@@ -4,7 +4,7 @@ import DropdownSelect from "../DropdownSelect/DropdownSelect";
 import React, { useState } from "react";
 import styles from "./InputField.module.scss";
 
-const { inputFieldContainer } = styles;
+const { inputFieldContainer, horizontalContainer, noIcon } = styles;
 
 interface IInputFieldProps {
 	type: "text" | "select";
@@ -16,13 +16,27 @@ interface IInputFieldProps {
 	handleOnChange?: () => void;
 	helper?: boolean;
 	helperText?: string;
+	horizontal?: boolean;
 	icon?: "icon" | "circlePrefix" | "prefix";
 }
 
-const InputField = ({ type, name, label, value, placeholder, handleOnChange, helper, helperText, icon, options }: IInputFieldProps) => {
+const InputField = ({
+	type,
+	name,
+	label,
+	value,
+	placeholder,
+	handleOnChange,
+	helper,
+	helperText,
+	icon,
+	horizontal,
+	options,
+}: IInputFieldProps) => {
 	const [activeSelectIndex, setActiveSelectIndex] = useState(0);
-	const iconTypeClass = icon ? styles[icon] : "";
+	const iconTypeClass = icon ? styles[icon] : noIcon;
 	const circleColorClass = options ? { backgroundColor: options[activeSelectIndex].value } : {};
+	const horizontalStyle = horizontal ? horizontalContainer : "";
 
 	const inputType =
 		type === "text" ? (
@@ -33,11 +47,12 @@ const InputField = ({ type, name, label, value, placeholder, handleOnChange, hel
 				handleOnChange={handleOnChange}
 				activeIndex={activeSelectIndex}
 				setActiveIndex={setActiveSelectIndex}
+				icon={icon}
 			/>
 		);
 
 	return (
-		<div className={inputFieldContainer}>
+		<div className={`${inputFieldContainer} ${horizontalStyle}`}>
 			<label htmlFor={name}>{label}</label>
 			<div>
 				<div className={iconTypeClass} style={circleColorClass}></div>
